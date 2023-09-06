@@ -44,18 +44,31 @@ func GetGroups(c *fiber.Ctx) error {
 
 	defer cursor.Close() // close the cursor when returning from this function
 
+<<<<<<< HEAD
 	var groups []*model.Group // define a list of groups to be returned
 
 	for cursor.HasMore() { // loop thru all of the documents
 
 		group := model.NewGroup()    // fetched group
 		var meta driver.DocumentMeta // data about the fetch
+=======
+	groups := model.NewGroups() // define a list of groups to be returned
+
+	for cursor.HasMore() { // loop thru all of the documents
+
+		group := model.NewGroup() // fetched group
+		var meta driver.DocumentMeta           // data about the fetch
+>>>>>>> 3c175a4 (update object names)
 
 		// fetch a document from the cursor
 		if meta, err = cursor.ReadDocument(ctx, group); err != nil {
 			logger.Sugar().Errorf("Failed to read document: %v", err)
 		}
+<<<<<<< HEAD
 		groups = append(groups, group)                                       // add the group to the list
+=======
+		groups.Groups = append(groups.Groups, group)       // add the group to the list
+>>>>>>> 3c175a4 (update object names)
 		logger.Sugar().Infof("Got doc with key '%s' from query\n", meta.Key) // log the key
 	}
 
@@ -93,7 +106,11 @@ func GetGroup(c *fiber.Ctx) error {
 
 	defer cursor.Close() // close the cursor when returning from this function
 
+<<<<<<< HEAD
 	group := model.NewGroup() // define a group to be returned
+=======
+	group := model.NewGroups() // define a group to be returned
+>>>>>>> 3c175a4 (update object names)
 
 	if cursor.HasMore() { // group found
 		var meta driver.DocumentMeta // data about the fetch
