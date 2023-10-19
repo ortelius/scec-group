@@ -44,18 +44,18 @@ func GetGroups(c *fiber.Ctx) error {
 
 	defer cursor.Close() // close the cursor when returning from this function
 
-	groups := model.NewGroups() // define a list of groups to be returned
+	var groups []*model.Group // define a list of groups to be returned
 
 	for cursor.HasMore() { // loop thru all of the documents
 
-		group := model.NewGroup() // fetched group
-		var meta driver.DocumentMeta           // data about the fetch
+		group := model.NewGroup()    // fetched group
+		var meta driver.DocumentMeta // data about the fetch
 
 		// fetch a document from the cursor
 		if meta, err = cursor.ReadDocument(ctx, group); err != nil {
 			logger.Sugar().Errorf("Failed to read document: %v", err)
 		}
-		groups.Groups = append(groups.Groups, group)       // add the group to the list
+		groups = append(groups, group)                                       // add the group to the list
 		logger.Sugar().Infof("Got doc with key '%s' from query\n", meta.Key) // log the key
 	}
 
@@ -93,7 +93,7 @@ func GetGroup(c *fiber.Ctx) error {
 
 	defer cursor.Close() // close the cursor when returning from this function
 
-	group := model.NewGroups() // define a group to be returned
+	group := model.NewGroup() // define a group to be returned
 
 	if cursor.HasMore() { // group found
 		var meta driver.DocumentMeta // data about the fetch
@@ -127,7 +127,7 @@ func NewGroup(c *fiber.Ctx) error {
 	var err error                  // for error handling
 	var meta driver.DocumentMeta   // data about the document
 	var ctx = context.Background() // use default database context
-	group := new(model.Group)    // define a group to be returned
+	group := new(model.Group)      // define a group to be returned
 
 	if err = c.BodyParser(group); err != nil { // parse the JSON into the group object
 		return c.Status(503).Send([]byte(err.Error()))
@@ -150,9 +150,9 @@ func NewGroup(c *fiber.Ctx) error {
 func setupRoutes(app *fiber.App) {
 
 	app.Get("/swagger/*", swagger.HandlerDefault) // handle displaying the swagger
-	app.Get("/msapi/group", GetGroup)          // list of groups
-	app.Get("/msapi/group/:key", GetGroup)      // single group based on name or key
-	app.Post("/msapi/group", NewGroup)          // save a single group
+	app.Get("/msapi/group", GetGroup)             // list of groups
+	app.Get("/msapi/group/:key", GetGroup)        // single group based on name or key
+	app.Post("/msapi/group", NewGroup)            // save a single group
 }
 
 // @title Ortelius v11 Group Microservice
