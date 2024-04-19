@@ -1,63 +1,73 @@
-# Ortelius v11 Domain Microservice
-RestAPI for the Domain Object
+# Ortelius v11 Group Microservice
 
-## Version: 11.0.0
+> Version 11.0.0
 
-### Terms of service
-<http://swagger.io/terms/>
+RestAPI for the Group Object
+![Release](https://img.shields.io/github/v/release/ortelius/scec-group?sort=semver)
+![license](https://img.shields.io/github/license/ortelius/scec-group)
 
-**Contact information:**
-Ortelius Google Group
-ortelius-dev@googlegroups.com
+![Build](https://img.shields.io/github/actions/workflow/status/ortelius/scec-group/build-push-chart.yml)
+[![MegaLinter](https://github.com/ortelius/scec-group/workflows/MegaLinter/badge.svg?branch=main)](https://github.com/ortelius/scec-group/actions?query=workflow%3AMegaLinter+branch%3Amain)
+![CodeQL](https://github.com/ortelius/scec-group/workflows/CodeQL/badge.svg)
+[![OpenSSF-Scorecard](https://api.securityscorecards.dev/projects/github.com/ortelius/scec-group/badge)](https://api.securityscorecards.dev/projects/github.com/ortelius/scec-group)
 
-**License:** [Apache 2.0](http://www.apache.org/licenses/LICENSE-2.0.html)
+![Discord](https://img.shields.io/discord/722468819091849316)
 
----
-### /msapi/domain
+## Path Table
 
-#### GET
-##### Summary
+| Method | Path | Description |
+| --- | --- | --- |
+| GET | [/msapi/group](#getmsapigroup) | Get a List of Groups |
+| POST | [/msapi/group](#postmsapigroup) | Create a Group |
+| GET | [/msapi/group/:key](#getmsapigroupkey) | Get a Group |
 
-Get a List of Domains
+## Reference Table
 
-##### Description
+| Name | Path | Description |
+| --- | --- | --- |
 
-Get a list of domains for the user.
+## Path Details
 
-##### Responses
+***
 
-| Code | Description |
-|------|-------------|
-| 200  | OK          |
+### [GET]/msapi/group
 
-#### POST
-##### Summary
+- Summary  
+Get a List of Groups
 
-Create a Domain
+- Description  
+Get a list of groups for the user.
 
-##### Description
+#### Responses
 
-Create a new Domain and persist it
+- 200 OK
 
-##### Responses
+***
 
-| Code | Description |
-|------|-------------|
-| 200  | OK          |
+### [POST]/msapi/group
 
-### /msapi/domain/:key
+- Summary  
+Create a Group
 
-#### GET
-##### Summary
+- Description  
+Create a new Group and persist it
 
-Get a Domain
+#### Responses
 
-##### Description
+- 200 OK
 
-Get a domain based on the _key or name.
+***
 
-##### Responses
+### [GET]/msapi/group/:key
 
-| Code | Description |
-|------|-------------|
-| 200  | OK          |
+- Summary  
+Get a Group
+
+- Description  
+Get a group based on the _key or name.
+
+#### Responses
+
+- 200 OK
+
+## References
