@@ -4,7 +4,7 @@
 
 RestAPI for the Group Object
 ![Release](https://img.shields.io/github/v/release/ortelius/scec-group?sort=semver)
-![license](https://img.shields.io/github/license/ortelius/scec-group)
+![license](https://img.shields.io/github/license/ortelius/.github)
 
 ![Build](https://img.shields.io/github/actions/workflow/status/ortelius/scec-group/build-push-chart.yml)
 [![MegaLinter](https://github.com/ortelius/scec-group/workflows/MegaLinter/badge.svg?branch=main)](https://github.com/ortelius/scec-group/actions?query=workflow%3AMegaLinter+branch%3Amain)
