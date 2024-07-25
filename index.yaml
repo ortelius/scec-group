@@ -2,6 +2,17 @@ apiVersion: v1
 entries:
   scec-group:
   - apiVersion: v2
+    appVersion: 11.0.651
+    created: "2024-07-25T04:37:49.405474668Z"
+    description: Domain microservice
+    digest: dce71bb73164d3bb68fb58fed93df21b5d0518db3759b32fc62405737c1c538a
+    icon: https://ortelius.github.io/ortelius-charts/logo.png
+    name: scec-group
+    type: application
+    urls:
+    - https://github.com/ortelius/scec-group/releases/download/scec-group-11.0.651/scec-group-11.0.651.tgz
+    version: 11.0.651
+  - apiVersion: v2
     appVersion: 11.0.649
     created: "2024-07-23T19:25:15.398742613Z"
     description: Domain microservice
@@ -2927,4 +2938,4 @@ entries:
     urls:
     - https://github.com/ortelius/scec-group/releases/download/scec-group-11.0.11/scec-group-11.0.11.tgz
     version: 11.0.11
-generated: "2024-07-23T19:25:15.398387415Z"
+generated: "2024-07-25T04:37:49.405148308Z"
