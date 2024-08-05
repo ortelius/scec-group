@@ -17,7 +17,7 @@ import (
 )
 
 var logger = database.InitLogger()
-var dbconn = database.InitializeDB("evidence")
+var dbconn = database.InitializeDatabase()
 
 // GetGroups godoc
 // @Summary Get a List of Groups
