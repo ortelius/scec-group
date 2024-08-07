@@ -140,11 +140,11 @@ func NewGroup(c *fiber.Ctx) error {
 
 	var resp driver.CollectionDocumentCreateResponse
 	// add the group to the database.  Ignore if it already exists since it will be identical
-	if resp, err = dbconn.Collection.CreateDocument(ctx, group); err != nil && !shared.IsConflict(err) {
+	if resp, err = dbconn.Collections["groups"].CreateDocument(ctx, group); err != nil && !shared.IsConflict(err) {
 		logger.Sugar().Errorf("Failed to create document: %v", err)
 	}
 	meta = resp.DocumentMeta
-	logger.Sugar().Infof("Created document in collection '%s' in db '%s' key='%s'\n", dbconn.Collection.Name(), dbconn.Database.Name(), meta.Key)
+	logger.Sugar().Infof("Created document in collection '%s' in db '%s' key='%s'\n", dbconn.Collections["groups"].Name(), dbconn.Database.Name(), meta.Key)
 
 	return c.JSON(group) // return the group object in JSON format.  This includes the new _key
 }
